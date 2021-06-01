@@ -1,5 +1,6 @@
 ## Seamless Manga Inpainting with Semantics Awareness
-[SIGGRAPH 2021](To appear) | [Project Website](https://www.cse.cuhk.edu.hk/~ttwong/papers/mangainpaint/mangainpaint.html) | [BibTex](#citation)
+### [SIGGRAPH 2021](To appear) | [Project Website](https://www.cse.cuhk.edu.hk/~ttwong/papers/mangainpaint/mangainpaint.html) | [BibTex](#citation)
+
 ### Introduction:
 Manga inpainting fills up the disoccluded pixels due to the removal of dialogue balloons or ``sound effect'' text. This process is long needed by the industry  for the language localization  and the conversion to animated manga. It is mostly done manually, as existing methods (mostly for natural image inpainting) cannot produce satisfying results. 
 We present the first manga inpainting method, a deep learning model, that generates high-quality results. Instead of direct inpainting, we propose to separate the complicated inpainting into two major phases, semantic inpainting and appearance synthesis. This separation eases both the feature  understanding and  hence the training of the learning model. A key idea is to disentangle the structural line and screentone, that helps the network to better distinguish the structural line and the screentone features for semantic interpretation. 
