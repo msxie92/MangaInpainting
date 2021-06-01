@@ -1,0 +1,46 @@
+MODE: 1             # 1: train, 2: test, 3: eval
+MODEL: 1            # 1: semantic model, 2: manga model, 3: semantic-manga model, 4: joint model
+MASK: 3             # 1: regular, 2: iregular, 3: external, 4: (regular, iregular)
+SEED: 2021          # random seed
+GPU: [0,1,2,3]      # list of gpu ids
+DEBUG: 0            # turns on debugging mode
+VERBOSE: 0          # turns on verbose mode in the output console
+NCOLORS: 1  
+
+TRAIN_FLIST: ./datasets/manga_train.flist
+VAL_FLIST: ./datasets/manga_val.flist
+TEST_FLIST: ./datasets/manga_test.flist
+
+TRAIN_LINE_FLIST: ./datasets/manga_lines_train.flist
+VAL_LINE_FLIST: ./datasets/manga_lines_val.flist
+TEST_LINE_FLIST: ./datasets/manga_lines_test.flist
+
+TRAIN_MASK_FLIST: ./datasets/masks_train.flist
+VAL_MASK_FLIST: ./datasets/masks_val.flist
+TEST_MASK_FLIST: ./datasets/masks_test.flist
+
+LR: 0.0001                    # learning rate
+D2G_LR: 0.2                   # discriminator/generator learning rate ratio
+BETA1: 0.9                    # adam optimizer beta1
+BETA2: 0.999                  # adam optimizer beta2
+BATCH_SIZE: 4                 # input batch size for training
+INPUT_SIZE: 512               # input image size for training 0 for original size
+MAX_ITERS: 2e6                # maximum number of iterations to train the model
+
+SHRIK_ITERS: 5
+WEIGHTED_L1_LOSS_WEIGHT: 20   # structural line reconstruction weight
+L1_LOSS_WEIGHT: 20            # ScreenVAE map loss weight
+CONTENT_LOSS_WEIGHT: 200      # screentone reconstruction weight
+BINARY_LOSS_WEIGHT: 1         # binarization loss weight
+EDGE_LOSS_WEIGHT: 0           # edge loss weight
+INPAINT_ADV_LOSS_WEIGHT: 1    # adversarial loss weight
+FM_LOSS_WEIGHT: 5             # feature-matching loss weight
+
+GAN_LOSS: nsgan               # nsgan | lsgan | hinge
+GAN_POOL_SIZE: 0              # fake images pool size
+
+SAVE_INTERVAL: 1000           # how many iterations to wait before saving model (0: never)
+SAMPLE_INTERVAL: 1000         # how many iterations to wait before sampling (0: never)
+SAMPLE_SIZE: 6                # number of images to sample
+EVAL_INTERVAL: 0              # how many iterations to wait before model evaluation (0: never)
+LOG_INTERVAL: 10              # how many iterations to wait before logging training status (0: never)
