@@ -27,7 +27,6 @@ class Dataset(torch.utils.data.Dataset):
         self.mask_data = self.load_flist(mask_flist)
 
         self.input_size = config.INPUT_SIZE
-        self.sigma = config.SIGMA
         self.line = config.LINE
         self.mask = config.MASK
 
