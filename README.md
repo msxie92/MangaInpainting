@@ -47,6 +47,7 @@ Alternatively, you can download [Quick Draw Irregular Mask Dataset](https://gith
 Download the pre-trained models using the following links and copy them under `./checkpoints` directory.
 
 [MangaInpainting](https://drive.google.com/file/d/1YeVwaNfchLhy3lAA7jOLBP-W23onjy8S/view?usp=sharing)
+
 [ScreenVAE](https://drive.google.com/file/d/1QaXqR4KWl_lxntSy32QpQpXb-1-EP7_L/view)
 
 ### Testing
