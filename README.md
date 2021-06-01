@@ -1,5 +1,5 @@
 ## Seamless Manga Inpainting with Semantics Awareness
-[SIGGRAPH 2021](To appear) | [Project Website](To appear) | [BibTex](#citation)
+[SIGGRAPH 2021](To appear) | [Project Website](https://www.cse.cuhk.edu.hk/~ttwong/papers/mangainpaint/mangainpaint.html) | [BibTex](#citation)
 ### Introduction:
 Manga inpainting fills up the disoccluded pixels due to the removal of dialogue balloons or ``sound effect'' text. This process is long needed by the industry  for the language localization  and the conversion to animated manga. It is mostly done manually, as existing methods (mostly for natural image inpainting) cannot produce satisfying results. 
 We present the first manga inpainting method, a deep learning model, that generates high-quality results. Instead of direct inpainting, we propose to separate the complicated inpainting into two major phases, semantic inpainting and appearance synthesis. This separation eases both the feature  understanding and  hence the training of the learning model. A key idea is to disentangle the structural line and screentone, that helps the network to better distinguish the structural line and the screentone features for semantic interpretation. 
@@ -35,12 +35,6 @@ As most of our training manga images are under copyright. We recommend you to us
 Please download datasets from official websites and then use [Manga Restoration](https://github.com/msxie92/MangaRestoration) to restored the bitonal nature. 
 Please use a larger resolution instead of the predicted one to tolerant the prediction error. Exprically, set scale>1.4. 
 
-After downloading, run [`scripts/flist.py`](scripts/flist.py) to generate train, test and validation set file lists. 
-```bash
-mkdir datasets
-python ./scripts/flist.py --path path_to_train_set --output ./datasets/manga_train.flist
-```
-
 ### 2) Structural lines
 Our model is trained on structural lines extracted by [Li et al.](https://www.cse.cuhk.edu.hk/~ttwong/papers/linelearn/linelearn.html). You can download their publically available [testing code](https://github.com/ljsabc/MangaLineExtraction).
 
@@ -52,6 +46,7 @@ Alternatively, you can download [Quick Draw Irregular Mask Dataset](https://gith
 Download the pre-trained models using the following links and copy them under `./checkpoints` directory.
 
 [MangaInpainting](https://drive.google.com/file/d/1YeVwaNfchLhy3lAA7jOLBP-W23onjy8S/view?usp=sharing)
+[ScreenVAE](https://drive.google.com/file/d/1QaXqR4KWl_lxntSy32QpQpXb-1-EP7_L/view)
 
 ### Testing
 To test the model, create a `config.yaml` file similar to the [example config file](config.yml.example) and copy it under your checkpoints directory. 
@@ -88,6 +83,9 @@ If any part of our paper and code is helpful to your work, please generously cit
 	journal  = {ACM Transactions on Graphics (SIGGRAPH 2021 issue)},
 	month    = {August},
 	year     = {2021},
+	volume   = {40},
+        number   = {4},
+        pages    = {96:1--96:11}
 }
 ```
 
