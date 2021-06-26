@@ -53,7 +53,7 @@ Download the pre-trained models using the following links and copy them under `.
 ### Testing
 To test the model, create a `config.yaml` file similar to the [example config file](config.yml.example) and copy it under your checkpoints directory. 
 
-In each case, you need to provide an input image (image with a mask) and a mask file. Please make sure that the mask file covers the entire mask region in the input image. To test the model:
+In each case, you need to provide an input image, a line drawing image and a mask image. Please make sure that the mask file covers the entire mask region in the input image. To test the model:
 ```bash
 python test.py --checkpoints [path to checkpoints] \
       --input [path to the output directory]\
