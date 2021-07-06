@@ -1,0 +1,26 @@
+Seamless Manga Inpainting with Semantics Awareness
+
+Copyright (c) 2021 The Chinese University of Hong Kong
+
+Copyright and License Information: The source code, the binary executable, and all data files (hereafter, Software) are copyrighted by The Chinese University of Hong Kong and Tien-Tsin Wong (hereafter, Author), Copyright (c) 2021 The Chinese University of Hong Kong. All Rights Reserved.
+
+The Author grants to you ("Licensee") a non-exclusive license to use the Software for academic, research and commercial purposes, without fee. For commercial use, Licensee should submit a WRITTEN NOTICE to the Author. The notice should clearly identify the software package/system/hardware (name, version, and/or model number) using the Software. Licensee may distribute the Software to third parties provided that the copyright notice and this statement appears on all copies. Licensee agrees that the copyright notice and this statement will appear on all copies of the Software, or portions thereof. The Author retains exclusive ownership of the Software.
+
+Licensee may make derivatives of the Software, provided that such derivatives can only be used for the purposes specified in the license grant above.
+
+THE AUTHOR MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. THE AUTHOR SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES.
+
+By using the source code, Licensee agrees to cite the following papers in
+Licensee's publication/work:
+
+  Minshan Xie, Menghan Xia, Xueting Liu, Chengze Li and Tien-Tsin Wong
+  "Seamless Manga Inpainting with Semantics Awareness"
+  ACM Transactions on Graphics (SIGGRAPH 2021 issue), Vol. 40, No. 4, August 2021, pp. 96:1-96:11.
+
+
+By using or copying the Software, Licensee agrees to abide by the intellectual property laws, and all other applicable laws of the U.S., and the terms of this license.
+
+Author shall have the right to terminate this license immediately by written notice upon Licensee's breach of, or non-compliance with, any of its terms.
+Licensee may be held legally responsible for any infringement that is caused or encouraged by Licensee's failure to abide by the terms of this license.
+
+For more information or comments, send mail to: ttwong@acm.org
