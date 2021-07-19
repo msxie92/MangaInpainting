@@ -47,70 +47,32 @@ class MangaInpaintor():
             print(index, name)
             images, lines, masks = self.cuda(*items[:3])
             index += 1
-
-            # self.save_images(lines[:,:,:h,:w], name, 'lines')
-            # self.save_images(images[:,:,:h,:w], name, 'manga')
-
             h,w = items[3]
-            # if lines.shape[2]*lines.shape[3]>1280*1024:
-            #     hp,wp = 1280,1024
-            #     masks = masks[:,:,:hp,:wp]
-            #     lines = lines[:,:,:hp,:wp]
-            #     images = images[:,:,:hp,:wp]
 
             dilate = Dilation2d(1,1,3, soft_max=False)
-            # self.save_images(masks[:,:,:h,:w]*2-1, name, 'masks')
             masks = dilate(masks, iterations=2)
             manga_masked = (images * (1 - masks)) + masks
             lines_masked = (lines * (1 - masks)) + masks
 
             screen_masked = self.svae_model(manga_masked, lines_masked, rep=True)
             screen0 = self.svae_model(images, lines, rep=True)
-            # self.save_images(screen0[:,:,:h,:w], name, 'screen')
 
             manga_masked = (images * (1 - masks)) + masks
             lines_masked = (lines * (1 - masks)) + masks
 
-            # self.save_images(manga_masked[:,:,:h,:w], name, 'manga_masked')
-            # self.save_images(lines_masked[:,:,:h,:w], name, 'lines_masked')
-            # self.save_images(screen_masked[:,:,:h,:w], name, 'screen_masked')
-
-            scale=False
-            if scale:
-                lines_masked = F.interpolate(lines_masked,scale_factor=0.5, mode='bilinear')
-                screen_masked = F.interpolate(screen_masked, scale_factor=0.5, mode='bilinear')
-                masks = F.interpolate(masks, scale_factor=0.5, mode='nearest')
-
             screenl, linesl, masksl = self.semantic_inpaint_model.test(screen_masked, lines_masked, masks)
 
-            t = 0
-            for screen, lines, maskst in zip(screenl, linesl, masksl):
-                t = t+1
-                self.save_images(lines[:,:,:h,:w], name[:-4]+'_%d.png'%t, 'lines_decode')
-                self.save_images(screen[:,:,:h,:w], name[:-4]+'_%d.png'%t, 'screen_decode')
-                self.save_images(maskst[:,:,:h,:w]*2-1, name[:-4]+'_%d.png'%t, 'masks')
-                # lines[lines>0]=1
-                screen_decode = screen_masked *(1-masks) + screen * masks
-                lines_decode = lines_masked *(1-masks) + lines * masks
-                # manga_recons = self.svae_model(screen_decode, lines_decode, screen=True)
-                # manga_recons = images *(1-masks) + manga_recons * masks
-                # self.save_images(manga_recons[:,:,:h,:w], name[:-4]+'_%d.png'%t, 'manga_recons')
-                if scale:
-                    screenr = F.interpolate(screen, scale_factor=2, mode='bilinear')
-                    linesr = F.interpolate(lines, scale_factor=2, mode='bilinear')
-                    masksr = F.interpolate(masks, scale_factor=2, mode='bilinear')
-                    outputs = self.manga_inpaint_model(images, torch.cat([screenr, linesr],1), masksr)
-                    outputs_merged = (outputs * masksr) + (images * (1 - masksr))
-                    outputs_merged_l = (outputs_merged + 1)*(linesr+1)/2 -1
-                else:
-                    outputs = self.manga_inpaint_model(images, torch.cat([screen, lines],1), masks)
-                    outputs_merged = (outputs * masks) + (images * (1 - masks))
-                    outputs_merged_l = (outputs_merged + 1)*(lines+1)/2 -1
+            screen = screenl[-1]
+            lines = linesl[-1]
+            screen_decode = screen_masked *(1-masks) + screen * masks
+            lines_decode = lines_masked *(1-masks) + lines * masks
+            
+            outputs = self.manga_inpaint_model(images, torch.cat([screen, lines],1), masks)
+            outputs_merged = (outputs * masks) + (images * (1 - masks))
+            outputs_merged_l = (outputs_merged + 1)*(lines+1)/2 -1
 
-                # self.save_images(outputs[:,:,:h,:w], name[:-4]+'_%d.png'%t, 'manga_decode')
-                self.save_images(outputs_merged[:,:,:h,:w], name[:-4]+'_%d.png'%t, 'manga_merged')
-                # self.save_images(outputs_merged, name[:-4]+'_%d.png'%t, 'manga_merged')
-
+            self.save_images(outputs_merged[:,:,:h,:w], name, '')
+            
             torch.cuda.empty_cache()
 
         print('\nEnd test....')
