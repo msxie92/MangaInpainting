@@ -79,7 +79,7 @@ The model configuration is stored in a [`config.yaml`](config.yml.example) file 
 If any part of our paper and code is helpful to your work, please generously cite with:
 
 ```
-@inproceedings{xie2021seamless,
+@article{xie2021seamless,
 	title    ={Seamless Manga Inpainting with Semantics Awareness},
 	author   ={Minshan Xie and Menghan Xia and Xueting Liu and Chengze Li and Tien-Tsin Wong},
 	journal  = {ACM Transactions on Graphics (SIGGRAPH 2021 issue)},
