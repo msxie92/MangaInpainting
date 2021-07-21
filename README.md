@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ## Datasets
 ### 1) Images
-As most of our training manga images are under copyright. We recommend you to use restored [Manga109 dataset](http://www.manga109.org/en/). 
+As most of our training manga images are under copyright, we recommend you to use restored [Manga109 dataset](http://www.manga109.org/en/). 
 Please download datasets from official websites and then use [Manga Restoration](https://github.com/msxie92/MangaRestoration) to restored the bitonal nature. 
 Please use a larger resolution instead of the predicted one to tolerant the prediction error. Exprically, set scale>1.4. 
 
