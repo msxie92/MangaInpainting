@@ -29,7 +29,15 @@ class BaseModel(nn.Module):
         else:
             data = torch.load(self.gen_weights_path, map_location=lambda storage, loc: storage)
 
-        self.generator.load_state_dict(data['generator'])
+        if isinstance(self.generator, torch.nn.DataParallel):
+            self.generator.load_state_dict(data['generator'])
+        else:
+            net=nn.DataParallel(self.generator)
+            net.load_state_dict(data['generator'])
+            self.generator=net.module
+            del net
+            
+        del data
 
 
 class SemanticInpaintingModel(BaseModel):
