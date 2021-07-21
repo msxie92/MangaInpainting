@@ -21,15 +21,15 @@ class BaseModel(nn.Module):
         self.gen_weights_path = os.path.join(config.PATH, name + '_gen.pth')
 
     def load(self):
-        if os.path.exists(self.gen_weights_path):
-            print('Loading %s generator...' % self.name)
+        # if os.path.exists(self.gen_weights_path):
+        print('Loading %s generator...' % self.name)
 
-            if torch.cuda.is_available():
-                data = torch.load(self.gen_weights_path)
-            else:
-                data = torch.load(self.gen_weights_path, map_location=lambda storage, loc: storage)
+        if torch.cuda.is_available():
+            data = torch.load(self.gen_weights_path)
+        else:
+            data = torch.load(self.gen_weights_path, map_location=lambda storage, loc: storage)
 
-            self.generator.load_state_dict(data['generator'])
+        self.generator.load_state_dict(data['generator'])
 
 
 class SemanticInpaintingModel(BaseModel):
