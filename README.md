@@ -94,3 +94,4 @@ If any part of our paper and code is helpful to your work, please generously cit
 ## Reference
 - [ScreenVAE](https://github.com/msxie92/ScreenStyle)
 - [Edge-Connect](https://github.com/knazeri/edge-connect)
+- [generative-inpainting-pytorch](https://github.com/daa233/generative-inpainting-pytorch)
