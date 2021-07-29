@@ -8,8 +8,8 @@
 		"args": { 
 			// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
 			"VARIANT": "3.9",
-			// Options: cpu, cuda, rocm
-			"HW_ACCEL": "rocm"
+			// Options: cpu, cu111, rocm4.2
+			"HW_ACCEL": "cu111"
 		}
 	},
 	"postAttachCommand": "make download-models",

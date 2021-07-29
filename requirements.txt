@@ -6,3 +6,5 @@ imageio~=2.9.0
 matplotlib~=3.4.2
 pyaml
 opencv-python~=4.5.3
+torch~=1.9.0
+torchvision~=0.10.0
