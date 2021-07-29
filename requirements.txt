@@ -1,6 +1,10 @@
-numpy ~= 1.15.0
-scipy ~= 1.1.0
-scikit-image ~= 0.16.2
-scikit-learn ~= 0.21.3
-matplotlib ~= 3.1.1
+numpy~=1.21.0
+scipy~=1.7.0
+scikit-image~=0.18.2
+scikit-learn~=0.24.0
+imageio~=2.9.0
+matplotlib~=3.4.2
 pyaml
+opencv-python~=4.5.3
+torch~=1.9.0
+torchvision~=0.10.0

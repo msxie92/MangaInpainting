@@ -29,6 +29,7 @@ def main(mode=None):
         torch.backends.cudnn.benchmark = True   # cudnn auto-tuner
     else:
         config.DEVICE = torch.device("cpu")
+    print(f'Using device {config.DEVICE}')
 
 
 
