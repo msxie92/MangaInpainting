@@ -36,8 +36,11 @@ class ScreenVAE(nn.Module):
                 if isinstance(net, torch.nn.DataParallel):
                     net = net.module
                 print('loading the model from %s' % load_path)
+
+                device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+                print(f'SVAE using device {device}')
                 state_dict = torch.load(
-                    load_path, map_location=lambda storage, loc: storage.cuda())
+                    load_path, map_location=device)
                 if hasattr(state_dict, '_metadata'):
                     del state_dict._metadata
 

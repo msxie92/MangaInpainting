@@ -9,9 +9,10 @@ import torchvision.transforms.functional as F
 import torch.nn.functional as nnF
 from torch.utils.data import DataLoader
 from PIL import Image
-from scipy.misc import imread, imsave, imresize
+from imageio import imread, imsave
 from skimage.feature import canny
 from skimage.color import rgb2gray, gray2rgb
+from skimage.transform import resize
 from .utils import create_mask
 from scipy import ndimage
 import cv2
@@ -114,9 +115,9 @@ class Dataset(torch.utils.data.Dataset):
 
     def load_line(self, img, index, mask):
 
-        line = imread(self.line_data[index], mode='L')
+        line = imread(self.line_data[index], pilmode='L')
         scale = img.shape[0]/line.shape[0]
-        line = imresize(line, img.shape[:2], interp='bilinear')
+        line = resize(line, img.shape[:2])
         return line
 
     def load_mask(self, size, index, pos=None):
@@ -145,7 +146,7 @@ class Dataset(torch.utils.data.Dataset):
             i = (imgw - side) // 2
             img = img[j:j + side, i:i + side, ...]
         # print(img.shape)
-        img = scipy.misc.imresize(img, [height, width])
+        img = resize(img, [height, width])
 
         return img
 
