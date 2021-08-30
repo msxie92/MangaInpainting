@@ -25,6 +25,9 @@ git clone https://github.com/msxie92/MangaInpainting.git
 cd MangaInpainting
 ```
 - Install PyTorch and dependencies from http://pytorch.org
+```
+conda install pytorch==1.2.0 torchvision==0.4.0 cudatoolkit=9.2 -c pytorch
+```
 - Install python requirements:
 ```bash
 pip install -r requirements.txt
@@ -40,7 +43,7 @@ Please use a larger resolution instead of the predicted one to tolerant the pred
 Our model is trained on structural lines extracted by [Li et al.](https://www.cse.cuhk.edu.hk/~ttwong/papers/linelearn/linelearn.html). You can download their publically available [testing code](https://github.com/ljsabc/MangaLineExtraction).
 
 ### 3) Masks
-Our model is trained on both regular masks (randomly generated rectangle masks) and irregular masks (provided by [Liu et al.](https://arxiv.org/abs/1804.07723)). You can download publically available Irregular Mask Dataset from [their website](http://masc.cs.gmu.edu/wiki/partialconv).
+Our model is trained on both regular masks (randomly generated rectangle masks) and irregular masks (provided by [Liu et al. 2017](https://arxiv.org/abs/1804.07723)). You can download publically available Irregular Mask Dataset from [their website](http://masc.cs.gmu.edu/wiki/partialconv).
 Alternatively, you can download [Quick Draw Irregular Mask Dataset](https://github.com/karfly/qd-imd) by Karim Iskakov which is combination of 50 million strokes drawn by human hand.
 
 ## Getting Started
@@ -75,17 +78,20 @@ This script will inpaint all images in `./examples/test/imgs` using their corres
 ### Model Configuration
 The model configuration is stored in a [`config.yaml`](config.yml.example) file under your checkpoints directory. 
 
+## Copyright and License
+You are granted with the LICENSE(LICENSE) for both academic and commercial usages.
+
 ## Citation
 If any part of our paper and code is helpful to your work, please generously cite with:
 
 ```
 @article{xie2021seamless,
-	title    ={Seamless Manga Inpainting with Semantics Awareness},
-	author   ={Minshan Xie and Menghan Xia and Xueting Liu and Chengze Li and Tien-Tsin Wong},
-	journal  = {ACM Transactions on Graphics (SIGGRAPH 2021 issue)},
-	month    = {August},
-	year     = {2021},
-	volume   = {40},
+        title    ={Seamless Manga Inpainting with Semantics Awareness},
+        author   ={Minshan Xie and Menghan Xia and Xueting Liu and Chengze Li and Tien-Tsin Wong},
+        journal  = {ACM Transactions on Graphics (SIGGRAPH 2021 issue)},
+        month    = {August},
+        year     = {2021},
+        volume   = {40},
         number   = {4},
         pages    = {96:1--96:11}
 }
