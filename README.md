@@ -79,7 +79,7 @@ This script will inpaint all images in `./examples/test/imgs` using their corres
 The model configuration is stored in a [`config.yaml`](config.yml.example) file under your checkpoints directory. 
 
 ## Copyright and License
-You are granted with the LICENSE(LICENSE) for both academic and commercial usages.
+You are granted with the [`LICENSE`](LICENSE) for both academic and commercial usages.
 
 ## Citation
 If any part of our paper and code is helpful to your work, please generously cite with:
