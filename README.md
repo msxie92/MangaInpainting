@@ -9,7 +9,7 @@ Detailed description of the system can be found in our [paper](https://www.cse.c
 <!-- ------------------------------------------------------------------------------ -->
 ## Example Results 
 Belows shows an example of our inpainted manga image. Our method automatically fills up the disoccluded regions with meaningful structural lines and seamless screentones.
-![Example](examples/shegreat_0020.png)
+![Example](examples/representative.png)
 
 <!-- ------------------------------------------------------------------------------ -->
 ## Prerequisites
