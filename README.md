@@ -54,8 +54,6 @@ Download the pre-trained models using the following links and copy them under `.
 [ScreenVAE](https://drive.google.com/file/d/1QaXqR4KWl_lxntSy32QpQpXb-1-EP7_L/view)
 
 ### Testing
-To test the model, create a `config.yaml` file similar to the [example config file](config.yml.example) and copy it under your checkpoints directory. 
-
 In each case, you need to provide an input image, a line drawing image and a mask image. Please make sure that the mask file covers the entire mask region in the input image. To test the model:
 ```bash
 python test.py --checkpoints [path to checkpoints] \
